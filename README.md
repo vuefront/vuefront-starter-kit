@@ -21,12 +21,25 @@ Show your :heart: - give us a :star: <br/>
 Help us grow this project to be the best it can be!
   </p>
 
+The VueFront Starter kit is a boilerplate of a VueFront Web App built on Nuxt. You can clone it and modify to quickly start working with VueFront. 
+
+You can also use an App Generator by running this command in your terminal:
+
+```bash
+# Create VueFront app. replace <project-name> with vuefront
+yarn create vuefront-app <project-name>
+# OR npx create-vuefront-app <project-name>
+
+yarn dev
+```
+
 ### CMS Connect App (required to be installed first)
 VueFront is compatible with the following CMS:
 1. [Wordpress](https://github.com/vuefront/wordpress)
 2. [Magento](https://github.com/vuefront/magento)
 3. [OpenCart](https://github.com/vuefront/opencart)
 4. [PrestaShop](https://github.com/vuefront/prestashop)
+
 
 ## Quick Start
 1. Install [CMS Connect App](https://vuefront.com/cms) on your CMS website to obtain the CMS Connect URL 
@@ -36,7 +49,6 @@ VueFront is compatible with the following CMS:
 
 
 ## Setup VueFront App on your local computer
-
 1. Clone this repo
 2. Run the following commands
 ``` bash
