@@ -47,6 +47,11 @@ VueFront is compatible with the following CMS:
 3. Modify the .env (add CMS Connect URL to your website)
 4. Deploy on Heroku or Netlify
 
+## Netlify setup
+Repositiory: connect your forked vuefront-starter-kit
+Build command: npm run generate
+Publish directory: dist
+
 
 ## Setup VueFront App on your local computer
 1. Clone this repo
