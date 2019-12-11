@@ -44,7 +44,7 @@ VueFront is compatible with the following CMS:
 ## Quick Start
 1. Install [CMS Connect App](https://vuefront.com/cms) on your CMS website to obtain the CMS Connect URL 
 2. Fork this repo
-3. Modify the .env (add CMS Connect URL to your website)
+3. Rename .env-dist to .env and edit it: add your CMS Connect URL, provided in the VueFront CMS App
 4. Deploy on Heroku or Netlify
 
 ## Netlify setup
