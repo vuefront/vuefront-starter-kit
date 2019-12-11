@@ -19,7 +19,9 @@
     "vuefront-nuxt": "^0.2.3"
   },
   "devDependencies": {
+    "@babel/runtime-corejs2": "^7.7.6",
     "babel-plugin-lodash": "^3.3.4",
+    "core-js": "2",
     "lodash-webpack-plugin": "^0.11.5",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.3.1"
