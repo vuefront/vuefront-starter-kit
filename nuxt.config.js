@@ -31,9 +31,9 @@ export default {
     'vuefront-nuxt',
     'cookie-universal-nuxt'
   ],
-  // router: {
-  //   base: process.env.SITE_URL
-  // },
+  router: {
+    base: process.env.BASE_URL
+  },
   build: {
     babel: {
       plugins: ['lodash']
