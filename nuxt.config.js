@@ -20,7 +20,7 @@ export default {
     link: [{
         rel: 'icon',
         type: 'image/png',
-        href: '/favicon.ico'
+        href: process.env.BASE_URL+'favicon.ico'
       }],
     script: []
   },
