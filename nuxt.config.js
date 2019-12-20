@@ -7,7 +7,7 @@ export default {
     FEATURED_PRODUCT: process.env.FEATURED_PRODUCT
   },
   generate: {
-    concurrency: 20,
+    concurrency: 5,
     subFolders: false
   },
   head: {
@@ -31,6 +31,12 @@ export default {
     'vuefront-nuxt',
     'cookie-universal-nuxt'
   ],
+  pwa: {
+    icon: {},
+    manifest: {
+      name: 'VueFront'
+    },
+  },
   router: {
     base: process.env.BASE_URL
   },
