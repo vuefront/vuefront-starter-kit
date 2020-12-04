@@ -2,7 +2,6 @@ require('dotenv').config()
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 export default {
-  mode: 'universal',
   env: {
     FEATURED_PRODUCT: process.env.FEATURED_PRODUCT
   },
@@ -42,11 +41,27 @@ export default {
   },
   build: {
     babel: {
-      plugins: ['lodash']
+      plugins: ['lodash', 'preval']
     },
-    extractCSS: true,
-    plugins: [new LodashModuleReplacementPlugin({
+    splitChunks: {
+      layouts: true,
+      pages: true,
+      commons: true
+    },
+    postcss: {
+      preset: {
+        features: {
+          "focus-within-pseudo-class": false
+        }
+      },
+      plugins: {
+        'tailwindcss': {}
+      }
+    },
+    plugins: [
+      new LodashModuleReplacementPlugin({
         shorthands: true
-      })]
+      })
+    ]
   }
 }
