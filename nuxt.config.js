@@ -1,7 +1,10 @@
+import LodashModuleReplacementPlugin from 'lodash-webpack-plugin'
 require('dotenv').config()
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 export default {
+  ssr: true,
+  target: 'static',
+  modern: 'client',
   env: {
     FEATURED_PRODUCT: process.env.FEATURED_PRODUCT
   },
@@ -16,11 +19,13 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'VueFront' }
     ],
-    link: [{
+    link: [
+      {
         rel: 'icon',
         type: 'image/png',
-        href: process.env.BASE_URL+'favicon.ico'
-      }],
+        href: '/favicon.png'
+      }
+    ],
     script: []
   },
   loading: { color: '#3B8070' },
@@ -30,19 +35,22 @@ export default {
     'vuefront-nuxt',
     'cookie-universal-nuxt'
   ],
-  pwa: {
-    icon: {},
-    manifest: {
-      name: 'VueFront'
-    },
-  },
-  router: {
-    base: process.env.BASE_URL
-  },
+  buildModules: [
+    // https://go.nuxtjs.dev/eslint
+    ['@nuxtjs/eslint-module', { fix: true }],
+    // https://go.nuxtjs.dev/stylelint
+    '@nuxtjs/stylelint-module'
+    // '@aceforth/nuxt-optimized-images',
+  ],
+  // optimizedImages: {
+  //   optimizeImages: true,
+  //   optimizeImagesInDev: true
+  // },
   build: {
     babel: {
       plugins: ['lodash', 'preval']
     },
+    extractCSS: true,
     splitChunks: {
       layouts: true,
       pages: true,
@@ -51,11 +59,12 @@ export default {
     postcss: {
       preset: {
         features: {
-          "focus-within-pseudo-class": false
+          // Fixes: https://github.com/tailwindcss/tailwindcss/issues/1190#issuecomment-546621554
+          'focus-within-pseudo-class': false
         }
       },
       plugins: {
-        'tailwindcss': {}
+        tailwindcss: {}
       }
     },
     plugins: [
