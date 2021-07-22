@@ -1,16 +1,24 @@
-import LodashModuleReplacementPlugin from 'lodash-webpack-plugin'
-require('dotenv').config()
+require("dotenv").config();
+const LodashModuleReplacementPlugin = require("lodash-webpack-plugin");
+const isDev = process.env.NODE_ENV === "development";
+
+const modules = [];
+
+if (!isDev) {
+  modules.push("@nuxtjs/pwa");
+}
 
 export default {
-  ssr: true,
-  target: 'static',
-  modern: 'client',
+  ssr: false,
+  target: isDev ? "server" : "static",
+//  modern: 'client',
   env: {
     FEATURED_PRODUCT: process.env.FEATURED_PRODUCT
   },
   generate: {
     concurrency: 5,
-    subFolders: false
+    subFolders: false,
+    crawler: true,
   },
   head: {
     title: 'vuefront',
@@ -30,16 +38,15 @@ export default {
   },
   loading: { color: '#3B8070' },
   modules: [
-    '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     'vuefront-nuxt',
-    'cookie-universal-nuxt'
+    ...modules,
   ],
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     ['@nuxtjs/eslint-module', { fix: true }],
     // https://go.nuxtjs.dev/stylelint
-    '@nuxtjs/stylelint-module'
+    ['@nuxtjs/stylelint-module', {fix: true}]
     // '@aceforth/nuxt-optimized-images',
   ],
   // optimizedImages: {
@@ -48,7 +55,7 @@ export default {
   // },
   build: {
     babel: {
-      plugins: ['lodash', 'preval']
+      plugins: ['lodash', 'preval' , "@babel/plugin-proposal-optional-chaining"]
     },
     extractCSS: true,
     splitChunks: {
@@ -67,6 +74,9 @@ export default {
         tailwindcss: {}
       }
     },
+    transpile: ["@vuefront/checkout-app"],
+    extractCSS: !isDev,
+    corejs: 2,
     plugins: [
       new LodashModuleReplacementPlugin({
         shorthands: true
