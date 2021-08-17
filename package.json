@@ -1,29 +1,53 @@
 {
   "name": "vuefront-starter-kit",
-  "description": "My terrific VueFront App",
-  "version": "0.1.0",
+  "description": "VueFront App",
+  "version": "0.1.1",
   "author": "dmitriyzhuk",
   "private": true,
   "scripts": {
-    "dev": "nuxt dev -o",
+    "dev": "nuxt dev",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "analyze": "nuxt build --analyze"
+    "analyze": "nuxt build --analyze",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
+    "lint": "yarn lint:js && yarn lint:style"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "eslint",
+    "*.{css,vue}": "stylelint"
   },
   "dependencies": {
-    "@nuxtjs/dotenv": "^1.4.0",
-    "@nuxtjs/pwa": "^3.0.0-beta.16",
-    "cookie-universal-nuxt": "^2.0.17",
-    "nuxt": "2.9.1",
-    "vuefront-nuxt": "^0.2.3"
+    "@aceforth/nuxt-optimized-images": "^1.4.0",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/pwa": "^3.3.5",
+    "cookie-universal-nuxt": "^2.1.5",
+    "nuxt": "2.15.7",
+    "nuxt-compress": "^5.0.0",
+    "vuefront-nuxt": "0.3.68"
   },
   "devDependencies": {
-    "@babel/runtime-corejs2": "^7.7.6",
+    "@babel/runtime-corejs2": "^7.14.8",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@nuxtjs/eslint-config": "^6.0.1",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/stylelint-module": "^4.0.0",
+    "babel-eslint": "^10.1.0",
     "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-preval": "^5.0.0",
     "core-js": "2",
-    "lodash-webpack-plugin": "^0.11.5",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^7.3.1"
+    "eslint": "^7.31.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.0.1",
+    "lodash-webpack-plugin": "^0.11.6",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-scss": "^3.19.0"
   }
 }
