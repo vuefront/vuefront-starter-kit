@@ -9,9 +9,9 @@ if (!isDev) {
 }
 
 export default {
-  ssr: false,
+  ssr: true,
   target: isDev ? "server" : "static",
-//  modern: 'client',
+  modern: !isDev ? "client" : false,
   env: {
     FEATURED_PRODUCT: process.env.FEATURED_PRODUCT
   },
@@ -57,26 +57,18 @@ export default {
     babel: {
       plugins: ['lodash', 'preval' , "@babel/plugin-proposal-optional-chaining"]
     },
-    extractCSS: true,
-    splitChunks: {
-      layouts: true,
-      pages: true,
-      commons: true
-    },
-    postcss: {
-      preset: {
-        features: {
-          // Fixes: https://github.com/tailwindcss/tailwindcss/issues/1190#issuecomment-546621554
-          'focus-within-pseudo-class': false
-        }
-      },
-      plugins: {
-        tailwindcss: {}
-      }
-    },
     transpile: ["@vuefront/checkout-app"],
     extractCSS: !isDev,
     corejs: 2,
+    optimization: {
+      splitChunks: {
+        chunks: "all",
+        automaticNameDelimiter: ".",
+        name: "test",
+        maxSize: 256000,
+        minSize: 50000,
+      },
+    },
     plugins: [
       new LodashModuleReplacementPlugin({
         shorthands: true
