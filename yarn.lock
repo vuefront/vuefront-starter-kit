@@ -14440,10 +14440,10 @@ vuefront-nuxt@^0.4.0:
     vue-graphql-loader "^0.3.3"
     vue-i18n "^8.25.0"
 
-vuefront@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/vuefront/-/vuefront-0.4.0.tgz#395039edd5a3ccc94e3491b6742134cf372160ac"
-  integrity sha512-/zTHWERAOTA5f6RUR7FVdIJqfgRfcMx/HZD/yNnkBdfw2ypJOZPrc5JsmdXnw27tHtqwExIcyeX+hEKgisZ3KA==
+vuefront@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/vuefront/-/vuefront-0.4.2.tgz#d9d0d798dfbab35d56086d07d71ace75361145cd"
+  integrity sha512-MmW5AcfC/e4/tA02DvbE7I/GO5oPmgFuII6AbqcJoM4Dlt5qNRJ4eaGNHq6ZI4XML5zKSZwq7nC9Z49dTqpzWg==
   dependencies:
     "@babel/standalone" "^7.14.7"
     "@jamescoyle/vue-icon" "^0.1.0"

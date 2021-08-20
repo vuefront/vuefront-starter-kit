@@ -60,15 +60,15 @@ export default {
     transpile: ["@vuefront/checkout-app"],
     extractCSS: !isDev,
     corejs: 2,
-    optimization: {
-      splitChunks: {
-        chunks: "all",
-        automaticNameDelimiter: ".",
-        name: "test",
-        maxSize: 256000,
-        minSize: 50000,
-      },
-    },
+    // optimization: {
+    //   splitChunks: {
+    //     chunks: "all",
+    //     automaticNameDelimiter: ".",
+    //     name: "test",
+    //     maxSize: 256000,
+    //     minSize: 50000,
+    //   },
+    // },
     plugins: [
       new LodashModuleReplacementPlugin({
         shorthands: true

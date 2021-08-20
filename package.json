@@ -26,7 +26,7 @@
     "@vuefront/checkout-app": "^0.2.0",
     "nuxt": "2.15.8",
     "nuxt-compress": "^5.0.0",
-    "vuefront": "^0.4.0",
+    "vuefront": "^0.4.2",
     "vuefront-nuxt": "^0.4.0"
   },
   "devDependencies": {
